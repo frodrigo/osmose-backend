@@ -25,9 +25,9 @@ from .Analyser_Merge import Analyser_Merge, Source, GeoJSON, Load, Mapping, Sele
 
 class Analyser_Merge_Bicycle_Rental_FR_IDF(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8160", "class": 11, "level": 3, "tag": ["merge", "public equipment", "cycle"], "desc": T_(u"IDF bicycle rental not integrated") }
-        self.possible_merge   = {"item":"8161", "class": 13, "level": 3, "tag": ["merge", "public equipment", "cycle"], "desc": T_(u"IDF bicycle rental integration suggestion") }
-        self.update_official  = {"item":"8162", "class": 14, "level": 3, "tag": ["merge", "public equipment", "cycle"], "desc": T_(u"IDF bicycle update") }
+        self.missing_official = {"item":"1022", "class": 11, "level": 2, "tag": ["merge", "public equipment", "cycle"], "desc": T_(u"IDF bicycle rental not integrated") }
+        self.possible_merge   = {"item":"1024", "class": 13, "level": 2, "tag": ["merge", "public equipment", "cycle"], "desc": T_(u"IDF bicycle rental integration suggestion") }
+        self.update_official  = {"item":"1025", "class": 14, "level": 2, "tag": ["merge", "public equipment", "cycle"], "desc": T_(u"IDF bicycle update") }
         Analyser_Merge.__init__(self, config, logger,
             u"https://opendata.paris.fr/explore/dataset/velib-disponibilite-en-temps-reel/information/",
             u"Vélib' - Disponibilité temps réel",

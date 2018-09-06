@@ -26,8 +26,8 @@ from .Analyser_Merge import Analyser_Merge, Source, CSV, Load, Mapping, Select, 
 class _Analyser_Merge_Public_Transport_FR_Ratp(Analyser_Merge):
     def __init__(self, config, logger, clas, select, osmTags, defaultTag):
         place = "RATP"
-        self.missing_official = {"item":"8040", "class": 1+10*clas, "level": 3, "tag": ["merge", "railway", "public transport"], "desc": T_f(u"{0} stop not integrated", place) }
-        self.possible_merge   = {"item":"8041", "class": 3+10*clas, "level": 3, "tag": ["merge", "railway", "public transport"], "desc": T_f(u"{0} stop, integration suggestion", place) }
+        self.missing_official = {"item":"1052", "class": 1+10*clas, "level": 2, "tag": ["missing_official", "railway", "public transport"], "desc": T_f(u"{0} stop not integrated", place) }
+        self.possible_merge   = {"item":"1054", "class": 3+10*clas, "level": 2, "tag": ["possible_merge", "railway", "public transport"], "desc": T_f(u"{0} stop, integration suggestion", place) }
         Analyser_Merge.__init__(self, config, logger,
             u"http://data.ratp.fr/fr/les-donnees/fiche-de-jeu-de-donnees/dataset/positions-geographiques-des-stations-du-reseau-ratp.html",
             u"Positions géographiques des stations du réseau RATP",

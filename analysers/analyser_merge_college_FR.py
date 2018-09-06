@@ -25,10 +25,10 @@ from .Analyser_Merge import Analyser_Merge, Source, CSV, Load, Mapping, Select, 
 
 class Analyser_Merge_College_FR(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8030", "class": 100, "level": 3, "tag": ["merge"], "desc": T_(u"College not integrated") }
-        self.missing_osm      = {"item":"7070", "class": 101, "level": 3, "tag": ["merge"], "desc": T_(u"College without tag \"ref:UAI\" or invalid") }
-        self.possible_merge   = {"item":"8031", "class": 102, "level": 3, "tag": ["merge"], "desc": T_(u"College, integration suggestion") }
-        self.update_official  = {"item":"8032", "class": 103, "level": 3, "tag": ["merge"], "desc": T_(u"College update") }
+        self.missing_official = {"item":"4012", "class": 100, "level": 1, "tag": ["missing_official"], "desc": T_(u"College not integrated") }
+        self.missing_osm      = {"item":"4013", "class": 101, "level": 1, "tag": ["missing_osm"], "desc": T_(u"College without tag \"ref:UAI\" or invalid") }
+        self.possible_merge   = {"item":"4014", "class": 102, "level": 1, "tag": ["possible_merge"], "desc": T_(u"College, integration suggestion") }
+        self.update_official  = {"item":"4015", "class": 103, "level": 1, "tag": ["update_official"], "desc": T_(u"College update") }
         Analyser_Merge.__init__(self, config, logger,
             u"https://www.data.gouv.fr/fr/datasets/etablissements-denseignement-superieur-2",
             u"Etablissements d'enseignement supérieur",

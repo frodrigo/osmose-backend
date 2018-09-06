@@ -25,9 +25,9 @@ from .Analyser_Merge import Analyser_Merge, Source, GTFS, Load, Mapping, Select,
 
 class Analyser_Merge_Railway_Railstation_FR(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8050", "class": 1, "level": 3, "tag": ["merge", "railway"], "desc": T_(u"Railway station not integrated") }
-        self.missing_osm      = {"item":"7100", "class": 2, "level": 3, "tag": ["merge", "railway"], "desc": T_(u"Railway station without tag \"uic_ref\" or invalid") }
-        self.possible_merge   = {"item":"8051", "class": 3, "level": 3, "tag": ["merge", "railway"], "desc": T_(u"Railway station, integration suggestion") }
+        self.missing_official = {"item":"1072", "class": 1, "level": 1, "tag": ["missing_official", "fix:imagery", "railway"], "desc": T_(u"Railway station not integrated") }
+        self.missing_osm      = {"item":"1073", "class": 2, "level": 1, "tag": ["missing_osm", "fix:imagery", "railway"], "desc": T_(u"Railway station without tag \"uic_ref\" or invalid") }
+        self.possible_merge   = {"item":"1074", "class": 3, "level": 1, "tag": ["possible_merge", "fix:imagery", "railway"], "desc": T_(u"Railway station, integration suggestion") }
         Analyser_Merge.__init__(self, config, logger,
             u"https://ressources.data.sncf.com/explore/dataset/sncf-ter-gtfs/",
             u"Horaires prévus des trains TER",

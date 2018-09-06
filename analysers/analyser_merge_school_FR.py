@@ -48,10 +48,10 @@ class Analyser_Merge_School_FR(Analyser_Merge):
             officialName = u"Métropole"
             self.is_in = lambda code_postal: code_postal[0:2] != "97"
 
-        self.missing_official = {"item":"8030", "class": classs+1, "level": 3, "tag": ["merge"], "desc": T_(u"School not integrated") }
-        self.missing_osm      = {"item":"7070", "class": classs+2, "level": 3, "tag": ["merge"], "desc": T_(u"School without tag \"ref:UAI\" or invalid") }
-        self.possible_merge   = {"item":"8031", "class": classs+3, "level": 3, "tag": ["merge"], "desc": T_(u"School, integration suggestion") }
-        self.update_official  = {"item":"8032", "class": classs+4, "level": 3, "tag": ["merge"], "desc": T_(u"School update") }
+        self.missing_official = {"item":"4032", "class": classs+1, "level": 1, "tag": ["missing_official", "fix:imagery"], "desc": T_(u"School not integrated") }
+        self.missing_osm      = {"item":"4033", "class": classs+2, "level": 1, "tag": ["missing_osm", "fix:imagery"], "desc": T_(u"School without tag \"ref:UAI\" or invalid") }
+        self.possible_merge   = {"item":"4034", "class": classs+3, "level": 1, "tag": ["possible_merge", "fix:imagery"], "desc": T_(u"School, integration suggestion") }
+        self.update_official  = {"item":"4035", "class": classs+4, "level": 1, "tag": ["update_official", "fix:imagery"], "desc": T_(u"School update") }
         Analyser_Merge.__init__(self, config, logger,
             u"https://www.data.gouv.fr/fr/datasets/adresse-et-geolocalisation-des-etablissements-denseignement-du-premier-et-second-degres-1/",
             u"Adresse et géolocalisation des établissements d'enseignement du premier et second degrés - " + officialName,

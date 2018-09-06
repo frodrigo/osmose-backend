@@ -25,8 +25,8 @@ from .Analyser_Merge import Analyser_Merge, Source, JSON, Load, Mapping, Select,
 
 class Analyser_Merge_Tourism_FR_Aquitaine_information(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8010", "class": 21, "level": 3, "tag": ["merge", "tourism"], "desc": T_(u"Aquitaine tourism information not integrated") }
-        self.possible_merge   = {"item":"8011", "class": 23, "level": 3, "tag": ["merge", "tourism"], "desc": T_(u"Aquitaine tourism information, integration suggestion") }
+        self.missing_official = {"item":"2062", "class": 21, "level": 3, "tag": ["missing_official", "tourism"], "desc": T_(u"Aquitaine tourism information not integrated") }
+        self.possible_merge   = {"item":"2064", "class": 23, "level": 3, "tag": ["possible_merge", "tourism"], "desc": T_(u"Aquitaine tourism information, integration suggestion") }
         Analyser_Merge.__init__(self, config, logger,
             u"http://catalogue.datalocale.fr/dataset/liste-points-infos-tourisme-aquitaine",
             u"Liste des points infos tourisme en Aquitaine ",

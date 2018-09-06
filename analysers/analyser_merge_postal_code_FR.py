@@ -26,8 +26,8 @@ from .Analyser_Merge import Analyser_Merge, Source, CSV, Load, Mapping, Select, 
 
 class Analyser_Merge_Postal_Code_FR(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_osm      = {"item":"7160", "class": 2, "level": 3, "tag": ["merge", "post"], "desc": T_(u"admin_level 8 without tag \"postal_code\"") }
-        self.possible_merge   = {"item":"8221", "class": 3, "level": 3, "tag": ["merge", "post"], "desc": T_(u"Postal code, integration suggestion") }
+        self.missing_osm      = {"item":"6063", "class": 2, "level": 2, "tag": ["merge", "post"], "desc": T_(u"admin_level 8 without tag \"postal_code\"") }
+        self.possible_merge   = {"item":"6064", "class": 3, "level": 2, "tag": ["merge", "post"], "desc": T_(u"Postal code, integration suggestion") }
 
         Analyser_Merge.__init__(self, config, logger,
             u"https://datanova.legroupe.laposte.fr/explore/dataset/laposte_hexasmal",

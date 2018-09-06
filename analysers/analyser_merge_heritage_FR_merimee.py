@@ -28,10 +28,10 @@ from functools import reduce
 
 class Analyser_Merge_Heritage_FR_Merimee(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8010", "class": 1, "level": 3, "tag": ["merge", "building"], "desc": T_f(u"Historical monument not integrated") }
-        self.missing_osm      = {"item":"7080", "class": 2, "level": 3, "tag": ["merge"], "desc": T_f(u"Historical monument without tag \"ref:mhs\" or invalid") }
-        self.possible_merge   = {"item":"8011", "class": 3, "level": 3, "tag": ["merge"], "desc": T_f(u"Historical monument, integration suggestion") }
-        self.update_official  = {"item":"8012", "class": 4, "level": 3, "tag": ["merge"], "desc": T_f(u"Historical monument update") }
+        self.missing_official = {"item":"3032", "class": 1, "level": 3, "tag": ["missing_official", "building"], "desc": T_f(u"Historical monument not integrated") }
+        self.missing_osm      = {"item":"3033", "class": 2, "level": 3, "tag": ["missing_osm", "building"], "desc": T_f(u"Historical monument without tag \"ref:mhs\" or invalid") }
+        self.possible_merge   = {"item":"3034", "class": 3, "level": 3, "tag": ["possible_merge", "building"], "desc": T_f(u"Historical monument, integration suggestion") }
+        self.update_official  = {"item":"3035", "class": 4, "level": 3, "tag": ["update_official", "building"], "desc": T_f(u"Historical monument update") }
 
         def parseDPRO(dpro):
             ret = None;

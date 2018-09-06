@@ -26,9 +26,9 @@ from .Analyser_Merge import Analyser_Merge, Source, CSV, Load, Mapping, Select, 
 
 class Analyser_Merge_Power_Tower_FR(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8290", "class": 1, "level": 3, "tag": ["merge", "power"], "desc": T_(u"Power support not integrated") }
-        self.missing_osm      = {"item":"7200", "class": 2, "level": 3, "tag": ["merge", "power"], "desc": T_(u"Power support without tag \"ref\" or invalid") }
-        self.possible_merge   = {"item":"8291", "class": 3, "level": 3, "tag": ["merge", "power"], "desc": T_(u"Power support, integration suggestion") }
+        self.missing_official = {"item":"7032", "class": 1, "level": 3, "tag": ["missing_official", "fix:imagery", "power"], "desc": T_(u"Power support not integrated") }
+        self.missing_osm      = {"item":"7033", "class": 2, "level": 3, "tag": ["missing_osm", "fix:imagery", "power"], "desc": T_(u"Power support without tag \"ref\" or invalid") }
+        self.possible_merge   = {"item":"7034", "class": 3, "level": 3, "tag": ["possible_merge", "fix:imagery", "power"], "desc": T_(u"Power support, integration suggestion") }
 
         Analyser_Merge.__init__(self, config, logger,
             u"https://opendata.reseaux-energies.fr/explore/dataset/pylones-rte",

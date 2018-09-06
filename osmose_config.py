@@ -1535,7 +1535,7 @@ for country in config.keys():
   config[country].analyser_updt_url = {}
   for k in config[country].analyser.keys():
     if k.startswith("merge_"):
-      config[country].analyser_updt_url[k] = [modules.config.url_frontend_update, modules.config.url_frontend_opendata_update]
+      config[country].analyser_updt_url[k] = [modules.config.url_frontend_opendata_update]
 
 #########################################################################
 # Passwords are stored in separate file, not on git repository

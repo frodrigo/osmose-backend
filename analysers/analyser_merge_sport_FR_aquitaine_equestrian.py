@@ -25,7 +25,7 @@ from .Analyser_Merge import Analyser_Merge, Source, JSON, Load, Mapping, Select,
 
 class Analyser_Merge_Sport_FR_Aquitaine_Equestrian(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8170", "class": 1, "level": 3, "tag": ["merge", "sport"], "desc": T_(u"Aquitaine equestrian spot not integrated") }
+        self.missing_official = {"item":"2012", "class": 1, "level": 3, "tag": ["missing_official", "fix:imagery", "sport"], "desc": T_(u"Aquitaine equestrian spot not integrated") }
         Analyser_Merge.__init__(self, config, logger,
             u"http://catalogue.datalocale.fr/dataset/liste-des-activites-de-pratique-equestre-en-aquitaine",
             u"Liste des activités de pratique équestre en aquitaine",

@@ -25,8 +25,8 @@ from .Analyser_Merge import Analyser_Merge, Source, CSV, Load, Mapping, Select, 
 
 class Analyser_Merge_Geodesie(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8070", "class": 1, "level": 3, "tag": ["merge"], "desc": T_(u"Missing survey point") }
-        self.moved_official = {"item":"8070", "class": 3, "level": 3, "tag": ["merge"], "desc": T_(u"Moved survey point")}
+        self.missing_official = {"item":"3012", "class": 1, "level": 3, "tag": ["missing_official"], "desc": T_(u"Missing survey point") }
+        self.moved_official = {"item":"3016", "class": 3, "level": 3, "tag": ["moved_official"], "desc": T_(u"Moved survey point")}
         Analyser_Merge.__init__(self, config, logger,
             u"http://geodesie.ign.fr",
             u"Fiches géodésiques",
@@ -63,7 +63,7 @@ class Analyser_Merge_Geodesie(Analyser_Merge):
 
 class Analyser_Merge_Geodesie_Site(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8070", "class": 2, "level": 3, "tag": ["merge"], "desc": T_(u"Missing survey site") }
+        self.missing_official = {"item":"3012", "class": 2, "level": 3, "tag": ["merge"], "desc": T_(u"Missing survey site") }
         Analyser_Merge.__init__(self, config, logger,
             u"http://geodesie.ign.fr",
             u"Fiches géodésiques-site",

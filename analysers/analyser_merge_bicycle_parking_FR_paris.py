@@ -40,7 +40,7 @@ tag_mapping = {
 
 class Analyser_Merge_Bicycle_Parking_FR_Paris(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8150", "class": 21, "level": 3, "tag":
+        self.missing_official = {"item":"1012", "class": 21, "level": 3, "tag":
                                  ["merge", "public equipment", "cycle"],
                                  "desc": T_(u"Paris bicycle parking not integrated") }
         Analyser_Merge.__init__(self, config, logger,
@@ -70,7 +70,7 @@ class Analyser_Merge_Bicycle_Parking_FR_Paris(Analyser_Merge):
 
 class Analyser_Merge_Motorcycle_Parking_FR_Paris(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8150", "class": 31, "level": 3, "tag":
+        self.missing_official = {"item":"1012", "class": 31, "level": 3, "tag":
                                  ["merge", "public equipment", "motorcycle"],
                                  "desc": T_(u"Paris motorcycle parking not integrated") }
         Analyser_Merge.__init__(self, config, logger,
@@ -102,7 +102,7 @@ class Analyser_Merge_Motorcycle_Parking_FR_Paris(Analyser_Merge):
 
 class Analyser_Merge_Bicycle_Motorcycle_Parking_FR_Paris(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8150", "class": 41, "level": 3, "tag":
+        self.missing_official = {"item":"1012", "class": 41, "level": 3, "tag":
                                  ["merge", "public equipment", "bicycle", "motorcycle"],
                                  "desc": T_(u"Paris shared motorcycle/motorcycle parking not integrated") }
         Analyser_Merge.__init__(self, config, logger,

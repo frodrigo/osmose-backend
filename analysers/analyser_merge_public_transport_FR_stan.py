@@ -26,8 +26,8 @@ from .Analyser_Merge import Analyser_Merge, Source, GTFS, Load, Mapping, Select,
 class Analyser_Merge_Public_Transport_FR_stan(Analyser_Merge):
     def __init__(self, config, logger = None):
         place = "STAN"
-        self.missing_official = {"item":"8040", "class": 91, "level": 3, "tag": ["merge", "public transport"], "desc": T_f(u"{0} stop not integrated", place) }
-        self.possible_merge   = {"item":"8041", "class": 93, "level": 3, "tag": ["merge", "public transport"], "desc": T_f(u"{0} stop, integration suggestion", place) }
+        self.missing_official = {"item":"1052", "class": 91, "level": 2, "tag": ["missing_official", "public transport"], "desc": T_f(u"{0} stop not integrated", place) }
+        self.possible_merge   = {"item":"1054", "class": 93, "level": 2, "tag": ["possible_merge", "public transport"], "desc": T_f(u"{0} stop, integration suggestion", place) }
         Analyser_Merge.__init__(self, config, logger,
             u"http://opendata.grandnancy.eu/jeux-de-donnees/detail-dune-fiche-de-donnees/?tx_icsoddatastore_pi1%5Buid%5D=108&tx_icsoddatastore_pi1%5BreturnID%5D=447",
             u"Réseau Stan: horaires et lignes",

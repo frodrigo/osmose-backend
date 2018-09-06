@@ -25,9 +25,9 @@ from .Analyser_Merge import Analyser_Merge, Source, CSV, SHP, Load, Mapping, Sel
 
 class Analyser_Merge_Parking_FR_bm(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8130", "class": 31, "level": 3, "tag": ["merge", "parking"], "desc": T_(u"BM parking not integrated") }
-        self.possible_merge   = {"item":"8131", "class": 33, "level": 3, "tag": ["merge", "parking"], "desc": T_(u"BM parking integration suggestion") }
-        self.update_official  = {"item":"8132", "class": 34, "level": 3, "tag": ["merge", "parking"], "desc": T_(u"BM parking update") }
+        self.missing_official = {"item":"1042", "class": 31, "level": 1, "tag": ["missing_official", "fix:imagery", "parking"], "desc": T_(u"BM parking not integrated") }
+        self.possible_merge   = {"item":"1044", "class": 33, "level": 1, "tag": ["possible_merge", "fix:imagery", "parking"], "desc": T_(u"BM parking integration suggestion") }
+        self.update_official  = {"item":"1045", "class": 34, "level": 1, "tag": ["update_official", "fix:imagery", "parking"], "desc": T_(u"BM parking update") }
         Analyser_Merge.__init__(self, config, logger,
             u"http://data.bordeaux-metropole.fr/data.php?themes=10", # joins on http://data.bordeaux-metropole.fr/data.php?themes=1
             u"Parking données techniques 2016", # joins on "Équipement public"
@@ -60,7 +60,7 @@ class Analyser_Merge_Parking_FR_bm(Analyser_Merge):
 
 class Analyser_Merge_Parking_FR_bm_disabled(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8130", "class": 21, "level": 3, "tag": ["merge", "parking"], "desc": T_(u"BM parking disabled not integrated") }
+        self.missing_official = {"item":"1042", "class": 21, "level": 3, "tag": ["missing_official", "parking"], "desc": T_(u"BM parking disabled not integrated") }
         Analyser_Merge.__init__(self, config, logger,
             u"http://data.bordeaux-metropole.fr/data.php?themes=8",
             u"Place de stationnement PMR",

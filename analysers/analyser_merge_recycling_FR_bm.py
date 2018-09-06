@@ -25,9 +25,9 @@ from .Analyser_Merge import Analyser_Merge, Source, SHP, Load, Mapping, Select, 
 
 class Analyser_Merge_Recycling_FR_bm(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8120", "class": 1, "level": 3, "tag": ["merge", "recycling"], "desc": T_(u"BM glass recycling not integrated") }
-        self.possible_merge   = {"item":"8121", "class": 3, "level": 3, "tag": ["merge", "recycling"], "desc": T_(u"BM glass recycling, integration suggestion") }
-        self.update_official  = {"item":"8122", "class": 4, "level": 3, "tag": ["merge", "recycling"], "desc": T_(u"BM glass recycling update") }
+        self.missing_official = {"item":"2042", "class": 1, "level": 3, "tag": ["missing_official", "recycling"], "desc": T_(u"BM glass recycling not integrated") }
+        self.possible_merge   = {"item":"2044", "class": 3, "level": 3, "tag": ["possible_merge", "recycling"], "desc": T_(u"BM glass recycling, integration suggestion") }
+        self.update_official  = {"item":"2045", "class": 4, "level": 3, "tag": ["update_official", "recycling"], "desc": T_(u"BM glass recycling update") }
         Analyser_Merge.__init__(self, config, logger,
             u"http://data.bordeaux-metropole.fr/data.php?themes=5",
             u"Emplacements d'apport volontaire",

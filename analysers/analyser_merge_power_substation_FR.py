@@ -26,10 +26,10 @@ from .Analyser_Merge import Analyser_Merge, Source, CSV, Load, Mapping, Select, 
 
 class Analyser_Merge_Power_Substation_FR(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8280", "class": 1, "level": 3, "tag": ["merge", "power"], "desc": T_(u"Power substation not integrated") }
-        self.missing_osm      = {"item":"7190", "class": 2, "level": 3, "tag": ["merge", "power"], "desc": T_(u"Power substation without tag \"ref:FR:RTE\" or invalid") }
-        self.possible_merge   = {"item":"8281", "class": 3, "level": 3, "tag": ["merge", "power"], "desc": T_(u"Power substation, integration suggestion") }
-        self.update_official  = {"item":"8282", "class": 4, "level": 3, "tag": ["merge", "power"], "desc": T_(u"Power substation update") }
+        self.missing_official = {"item":"7022", "class": 1, "level": 2, "tag": ["missing_official", "fix:imagery", "power"], "desc": T_(u"Power substation not integrated") }
+        self.missing_osm      = {"item":"7023", "class": 2, "level": 2, "tag": ["missing_osm", "fix:imagery", "power"], "desc": T_(u"Power substation without tag \"ref:FR:RTE\" or invalid") }
+        self.possible_merge   = {"item":"7024", "class": 3, "level": 2, "tag": ["possible_merge", "fix:imagery", "power"], "desc": T_(u"Power substation, integration suggestion") }
+        self.update_official  = {"item":"7025", "class": 4, "level": 2, "tag": ["update_official", "fix:imagery", "power"], "desc": T_(u"Power substation update") }
 
         Analyser_Merge.__init__(self, config, logger,
             u"https://opendata.reseaux-energies.fr/explore/dataset/postes-electriques-rte",

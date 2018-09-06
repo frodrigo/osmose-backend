@@ -25,9 +25,9 @@ from .Analyser_Merge import Analyser_Merge, Source, CSV, Load, Mapping, Select, 
 
 class Analyser_Merge_Fuel_FR(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8200", "class": 1, "level": 3, "tag": ["merge", "highway"], "desc": T_(u"Gas station not integrated") }
-        self.possible_merge   = {"item":"8201", "class": 3, "level": 3, "tag": ["merge", "highway"], "desc": T_(u"Gas station integration suggestion") }
-        self.update_official  = {"item":"8202", "class": 4, "level": 3, "tag": ["merge", "highway"], "desc": T_(u"Gas station update") }
+        self.missing_official = {"item":"1032", "class": 1, "level": 2, "tag": ["missing_official", "fix:imagery", "highway"], "desc": T_(u"Gas station not integrated") }
+        self.possible_merge   = {"item":"1034", "class": 3, "level": 2, "tag": ["possible_merge", "fix:imagery", "highway"], "desc": T_(u"Gas station integration suggestion") }
+        self.update_official  = {"item":"1035", "class": 4, "level": 2, "tag": ["update_official", "fix:imagery", "highway"], "desc": T_(u"Gas station update") }
         Analyser_Merge.__init__(self, config, logger,
             u"http://www.prix-carburants.economie.gouv.fr/rubrique/opendata/",
             u"Prix des carburants en France",

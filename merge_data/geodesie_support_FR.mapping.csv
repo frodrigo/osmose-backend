@@ -1,23 +1,23 @@
-8260;1;3;abbaye|couvent|monastere;amenity=monastery
-8260;2;3;église|cathédrale|basilique|chapelle;amenity=place_of_worship;;religion=christian
-8260;3;3;château d'eau;man_made=water_tower
-8260;4;3;réservoir;man_made=reservoir_covered
-8260;5;3;pigeonnier|colombier;man_made=dovecote
-8260;6;3;calvaire;historic=wayside_cross
-8260;7;3;silo;man_made=silo
-8260;8;3;cimetiere;landuse=cemetery
-8260;9;3;stele|monument aux morts;historic=memorial
-8260;10;3;table d'orientation;tourism=information;information=map
-8260;11;3;tour de l'horloge;amenity=clock;man_made=tower
-8260;12;3;casemate|blockhaus;military=bunker
-8260;13;3;lavoir;amenity=lavoir
-8260;15;3;château :;historic=castle
-8260;16;3;moulin;man_made=windmill
-8260;17;3;mairie|hôtel de ville;amenity=townhall
-8260;18;3;fontaine;amenity=fountain
-8260;19;3;^croix :|^croix en bois|^croix métallique|^croix en fer;historic=wayside_cross
-8260;20;3;^monument|^statue;historic=memorial
-8260;21;3;^puits :;man_made=water_well
-8260;22;3;^clocher;amenity=place_of_worship;;religion=christian
-8260;23;3;^éolienne;power=generator;generator:source=wind
-8260;24;3;^phare;man_made=lighthouse
+3020;1;3;abbaye|couvent|monastere;amenity=monastery
+3020;2;3;église|cathédrale|basilique|chapelle;amenity=place_of_worship;;religion=christian
+3040;1;3;château d'eau;man_made=water_tower
+3040;2;3;réservoir;man_made=reservoir_covered
+3040;3;3;pigeonnier|colombier;man_made=dovecote
+3030;1;3;calvaire;historic=wayside_cross
+3040;4;3;silo;man_made=silo
+9010;1;3;cimetiere;landuse=cemetery
+3030;2;3;stele|monument aux morts;historic=memorial
+3040;5;3;table d'orientation;tourism=information;information=map
+3030;3;3;tour de l'horloge;amenity=clock;man_made=tower
+3030;4;3;casemate|blockhaus;military=bunker
+3020;3;3;lavoir;amenity=lavoir
+3020;4;3;château :;historic=castle
+3040;6;3;moulin;man_made=windmill
+6020;10;3;mairie|hôtel de ville;amenity=townhall
+3030;5;3;fontaine;amenity=fountain
+3030;6;3;^croix :|^croix en bois|^croix métallique|^croix en fer;historic=wayside_cross
+3030;7;3;^monument|^statue;historic=memorial
+3040;7;3;^puits :;man_made=water_well
+3020;5;3;^clocher;amenity=place_of_worship;;religion=christian
+3040;8;3;^éolienne;power=generator;generator:source=wind
+3040;9;3;^phare;man_made=lighthouse

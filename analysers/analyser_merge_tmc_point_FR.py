@@ -25,7 +25,7 @@ from .Analyser_Merge import Analyser_Merge, Source, CSV, Load, Mapping, Select
 
 class _Analyser_Merge_TMC_Point_FR(Analyser_Merge):
     def __init__(self, config, logger, level, desc, osmTags, osmTypes, c, tcd, stcd, threshold):
-        self.missing_official = {"item":"7110", "class": tcd*100+stcd, "level": level, "tag": ["merge", "highway"], "desc":desc}
+        self.missing_official = {"item":"1092", "class": tcd*100+stcd, "level": level, "tag": ["missing_official", "fix:imagery", "highway"], "desc":desc}
         Analyser_Merge.__init__(self, config, logger,
             u"http://diffusion-numerique.info-routiere.gouv.fr/tables-alert-c-a4.html",
             "Alert-C-point",
@@ -95,7 +95,7 @@ class Analyser_Merge_TMC_Point_Toll_Booth_Fr(_Analyser_Merge_TMC_Point_FR):
 class Analyser_Merge_TMC_Point_Traffic_Signals_Fr(_Analyser_Merge_TMC_Point_FR):
     def __init__(self, config, logger = None):
         _Analyser_Merge_TMC_Point_FR.__init__(self, config, logger,
-            2,
+            3,
             T_(u"Traffic signals missing (TMC)"),
             {"highway": "traffic_signals"},
             ["nodes"],

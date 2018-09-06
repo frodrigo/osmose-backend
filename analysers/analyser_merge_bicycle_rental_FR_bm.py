@@ -25,9 +25,9 @@ from .Analyser_Merge import Analyser_Merge, Source, SHP, Load, Mapping, Select, 
 
 class Analyser_Merge_Bicycle_Rental_FR_bm(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8160", "class": 1, "level": 3, "tag": ["merge", "public equipment", "cycle"], "desc": T_(u"BM bicycle rental not integrated") }
-        self.possible_merge   = {"item":"8161", "class": 3, "level": 3, "tag": ["merge", "public equipment", "cycle"], "desc": T_(u"BM bicycle rental integration suggestion") }
-        self.update_official  = {"item":"8162", "class": 4, "level": 3, "tag": ["merge", "public equipment", "cycle"], "desc": T_(u"BM bicycle update") }
+        self.missing_official = {"item":"1022", "class": 1, "level": 2, "tag": ["missing_official", "public equipment", "cycle"], "desc": T_(u"BM bicycle rental not integrated") }
+        self.possible_merge   = {"item":"1024", "class": 3, "level": 2, "tag": ["possible_merge", "public equipment", "cycle"], "desc": T_(u"BM bicycle rental integration suggestion") }
+        self.update_official  = {"item":"1025", "class": 4, "level": 2, "tag": ["update_official", "public equipment", "cycle"], "desc": T_(u"BM bicycle update") }
         Analyser_Merge.__init__(self, config, logger,
             u"http://data.bordeaux-metropole.fr/data.php?themes=10",
             u"Station VCUB",

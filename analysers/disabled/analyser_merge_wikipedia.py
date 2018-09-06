@@ -324,7 +324,7 @@ class _Analyser_Merge_Wikipedia(Analyser_Merge):
     """
 
     def __init__(self, config, classs, desc, wikiTypes, wikiCountry, wikiLang, starts, osmTags, osmTypes, conflationDistance, logger = None):
-        self.possible_merge   = {"item":"8101", "class": classs, "level": 3, "tag": ["merge", "wikipedia"], "desc":desc }
+        self.possible_merge   = {"item":"2074", "class": classs, "level": 3, "tag": ["possible_merge", "wikipedia"], "desc":desc }
         Analyser_Merge.__init__(self, config, logger,
             u"http://toolserver.org/~kolossos/wp-world/pg-dumps/wp-world/",
             "Wikipedia-World",

@@ -5,10 +5,7 @@
       "1102",
       "1106"
     ],
-    "items": [
-      8330,
-      7220
-    ],
+    "item": 5060,
     "classes": 10,
     "level": 3,
     "title": "Hôpital",
@@ -28,9 +25,7 @@
       "2205",
       "2206"
     ],
-    "items": [
-      8330
-    ],
+    "item": 5060,
     "missing_osm": false,
     "classes": 20,
     "level": 3,
@@ -47,10 +42,7 @@
     "categories": [
       "3101"
     ],
-    "items": [
-      8350,
-      7240
-    ],
+    "item": 5070,
     "classes": 70,
     "level": 3,
     "title": "Laboratoire de Biologie Médicale",
@@ -67,10 +59,7 @@
     "categories": [
       "3201"
     ],
-    "items": [
-      8210,
-      7150
-    ],
+    "item": 5010,
     "classes": 0,
     "level": 3,
     "title": "Pharmacie",
@@ -87,10 +76,7 @@
     "categories": [
       "4301"
     ],
-    "items": [
-      8340,
-      7230
-    ],
+    "item": 5080,
     "missing_osm": false,
     "classes": 30,
     "level": 3,
@@ -109,10 +95,7 @@
     "categories": [
       "4302"
     ],
-    "items": [
-      8340,
-      7230
-    ],
+    "item": 5080,
     "missing_osm": false,
     "classes": 40,
     "level": 3,
@@ -131,10 +114,7 @@
     "categories": [
       "4401"
     ],
-    "items": [
-      8340,
-      7230
-    ],
+    "item": 5080,
     "missing_osm": false,
     "classes": 50,
     "level": 3,
@@ -153,10 +133,7 @@
     "categories": [
       "4501"
     ],
-    "items": [
-      8340,
-      7230
-    ],
+    "item": 5080,
     "missing_osm": false,
     "classes": 60,
     "level": 3,

@@ -36,16 +36,16 @@ class Analyser_Merge_Shop_FR(Analyser_Merge_Dynamic):
         mapping = 'merge_data/shop_FR.mapping.json'
         mapingfile = json.loads(open(mapping).read())
         for r in mapingfile:
-            self.classFactory(SubAnalyser_Merge_Shop_FR, r['class'].replace('.', ''), r['missing_official'], r['missing_osm'], r['class'], r['level'], r['title'], r['match'], r['generate'])
+            self.classFactory(SubAnalyser_Merge_Shop_FR, r['class'].replace('.', ''), r['item'], r['class'], r['level'], r['title'], r['match'], r['generate'])
 
 
 class SubAnalyser_Merge_Shop_FR(SubAnalyser_Merge_Dynamic):
-    def __init__(self, config, error_file, logger, missing_official, missing_osm, classs, level, title, selectTags, generateTags):
+    def __init__(self, config, error_file, logger, item, classs, level, title, selectTags, generateTags):
         classss = int(classs.replace('.', '0')[:-1]) * 100 + ord(classs[-1]) - 65
-        self.missing_official = {"item": missing_official, "class": classss+1, "level": level, "tag": ["merge"], "desc": T_(u"%s not integrated", title) }
-        #self.missing_osm      = {"item": missing_osm, "class": classss+2, "level": level, "tag": ["merge"], "desc": T_f(u"{0} without tag \"{1}\" or invalid", title, 'ref:FR:SIRET') }
-        #self.possible_merge   = {"item": missing_official[0:-1]+"1", "class": classss+3, "level": level, "tag": ["merge"], "desc": T_(u"%s, integration suggestion", title) }
-        #self.update_official  = {"item": missing_official[0:-1]+"2", "class": classss+4, "level": level, "tag": ["merge"], "desc": T_(u"%s update", title) }
+        self.missing_official = {"item": str(item+2), "class": classss+1, "level": level, "tag": ["merge"], "desc": T_(u"%s not integrated", title) }
+        #self.missing_osm      = {"item": str(item+3), "class": classss+2, "level": level, "tag": ["merge"], "desc": T_f(u"{0} without tag \"{1}\" or invalid", title, 'ref:FR:SIRET') }
+        #self.possible_merge   = {"item": str(item+4), "class": classss+3, "level": level, "tag": ["merge"], "desc": T_(u"%s, integration suggestion", title) }
+        #self.update_official  = {"item": str(item+5), "class": classss+4, "level": level, "tag": ["merge"], "desc": T_(u"%s update", title) }
 
         dep_code = config.options.get('country').split('-')[1]
 

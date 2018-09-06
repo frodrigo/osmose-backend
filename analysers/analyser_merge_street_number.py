@@ -26,7 +26,7 @@ from .Analyser_Merge import Analyser_Merge, Select
 class _Analyser_Merge_Street_Number(Analyser_Merge):
 
     def __init__(self, config, classs, city, logger, url, name, parser, load, mapping):
-        self.missing_official = {"item":"8080", "class": classs, "level": 3, "tag": ["addr"], "desc": T_(u"Missing address %s", city) }
+        self.missing_official = {"item":"6032", "class": classs, "level": 3, "tag": ["missing_official", "addr"], "desc": T_(u"Missing address %s", city) }
         Analyser_Merge.__init__(self, config, logger, url, name, parser, load, mapping)
         self.mapping.select = Select(
             types = ["nodes", "ways"],

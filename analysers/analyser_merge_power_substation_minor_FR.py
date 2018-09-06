@@ -26,8 +26,8 @@ from .Analyser_Merge import Analyser_Merge, Source, CSV, Load, Mapping, Select, 
 
 class Analyser_Merge_Power_Substation_minor_FR(Analyser_Merge):
     def __init__(self, config, logger = None):
-        self.missing_official = {"item":"8280", "class": 11, "level": 3, "tag": ["merge", "power"], "desc": T_(u"Power minor_distribution substation not integrated") }
-        self.possible_merge   = {"item":"8281", "class": 13, "level": 3, "tag": ["merge", "power"], "desc": T_(u"Power minor_distribution substation, integration suggestion") }
+        self.missing_official = {"item":"7022", "class": 11, "level": 3, "tag": ["missing_official", "power"], "desc": T_(u"Power minor_distribution substation not integrated") }
+        self.possible_merge   = {"item":"7024", "class": 13, "level": 3, "tag": ["possible_merge", "power"], "desc": T_(u"Power minor_distribution substation, integration suggestion") }
 
         Analyser_Merge.__init__(self, config, logger,
             u"https://data.enedis.fr/explore/dataset/poste-electrique/",

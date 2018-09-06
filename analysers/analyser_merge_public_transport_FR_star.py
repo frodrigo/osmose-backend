@@ -26,9 +26,9 @@ from .Analyser_Merge import Analyser_Merge, Source, CSV, Load, Mapping, Select, 
 class Analyser_Merge_Public_Transport_FR_Star(Analyser_Merge):
     def __init__(self, config, logger = None):
         place = "STAR"
-        self.missing_official = {"item":"8040", "class": 81, "level": 3, "tag": ["merge", "public transport"], "desc": T_f(u"{0} stop not integrated", place) }
-        self.possible_merge   = {"item":"8041", "class": 83, "level": 3, "tag": ["merge", "public transport"], "desc": T_f(u"{0} stop, integration suggestion", place) }
-        self.update_official  = {"item":"8042", "class": 84, "level": 3, "tag": ["merge", "public transport"], "desc": T_f(u"{0} stop update", place) }
+        self.missing_official = {"item":"1052", "class": 81, "level": 2, "tag": ["missing_official", "public transport"], "desc": T_f(u"{0} stop not integrated", place) }
+        self.possible_merge   = {"item":"1054", "class": 83, "level": 2, "tag": ["possible_merge", "public transport"], "desc": T_f(u"{0} stop, integration suggestion", place) }
+        self.update_official  = {"item":"1055", "class": 84, "level": 2, "tag": ["update_official", "public transport"], "desc": T_f(u"{0} stop update", place) }
         Analyser_Merge.__init__(self, config, logger,
             u"https://data.rennesmetropole.fr/explore/dataset/topologie-des-points-darret-de-bus-du-reseau-star",
             u"Topologie des points d'arrêt de bus du réseau STAR",
