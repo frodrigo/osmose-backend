@@ -25,15 +25,7 @@ import traceback
 import config
 from imposm.parser.simple import OSMParser
 from OsmState import OsmState
-
-try:
-    # For Python 3.0 and later
-    import subprocess
-    getstatusoutput = subprocess.getstatusoutput
-except:
-    # Fall back to Python 2
-    import commands
-    getstatusoutput = commands.getstatusoutput
+import subprocess
 
 ###########################################################################
 
@@ -62,7 +54,7 @@ class OsmPbfReader:
         else:
             try:
                 # Try to get timestamp from metadata
-                res = getstatusoutput("%s %s --out-timestamp" % (config.bin_osmconvert, self._pbf_file))
+                res = subprocess.check_output([config.bin_osmconvert, self._pbf_file, '--out-timestamp']).decode('utf-8')
                 if not res[0]:
                     d = dateutil.parser.parse(res[1]).replace(tzinfo=None)
                     if not d:
@@ -73,7 +65,7 @@ class OsmPbfReader:
 
             try:
                 # Compute max timestamp from data
-                res = getstatusoutput("%s %s --out-statistics | grep 'timestamp max'" % (config.bin_osmconvert, self._pbf_file))
+                res = subprocess.check_output([config.bin_osmconvert, self._pbf_file, '--out-statistics', '|', 'grep' 'timestamp max']).decode('utf-8')
                 if not res[0]:
                     s = res[1].split(' ')[2]
                     return dateutil.parser.parse(s).replace(tzinfo=None)
