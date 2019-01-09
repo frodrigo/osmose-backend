@@ -1,0 +1,43 @@
+/*#########################################################################
+##                                                                       ##
+## Copyrights Etienne Chové <chove@crans.org> 2009                       ##
+##                                                                       ##
+## This program is free software: you can redistribute it and/or modify  ##
+## it under the terms of the GNU General Public License as published by  ##
+## the Free Software Foundation, either version 3 of the License, or     ##
+## (at your option) any later version.                                   ##
+##                                                                       ##
+## This program is distributed in the hope that it will be useful,       ##
+## but WITHOUT ANY WARRANTY; without even the implied warranty of        ##
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         ##
+## GNU General Public License for more details.                          ##
+##                                                                       ##
+## You should have received a copy of the GNU General Public License     ##
+## along with this program.  If not, see <http://www.gnu.org/licenses/>. ##
+##                                                                       ##
+#########################################################################*/
+
+meta {
+    title: "Osmose-QA – Initial stuck to the name";
+    description: "Initial stuck to the name";
+    author: "Etienne Chové";
+}
+meta[lang=en] { /* lang=en, unused, only to use tr() to catch string for translation */
+    description: tr("Initial stuck to the name");
+}
+meta[lang=fr] {
+    description: "Initiale collée au nom";
+}
+
+*[name=~/^(.*[A-Z]\.)([A-Z][a-z].*)$/] {
+    throwOther: tr("Initial stuck to the name");
+    -osmoseItemClassLevel: "5010/902/3";
+    -osmoseTags: list("name", "fix:chair");
+    fixAdd: concat("name=", get(regexp_match("^(.*[A-Z]\\.)([A-Z][a-z].*)$", tag("name")), 1), " ", get(regexp_match("^(.*[A-Z]\\.)([A-Z][a-z].*)$", tag("name")), 2));
+
+    assertMatch: "node name=A.Bsuaeuae";
+    assertMatch: "way name=C.Dkuaeu";
+    assertNoMatch: "relation name=E. Fiuaeuie";
+    assertNoMatch: "node name=G.H.";
+    assertNoMatch: "node name=GeHaueue";
+}

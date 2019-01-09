@@ -1,0 +1,54 @@
+/*#########################################################################
+##                                                                       ##
+## Copyrights Etienne Chové <chove@crans.org> 2009                       ##
+##                                                                       ##
+## This program is free software: you can redistribute it and/or modify  ##
+## it under the terms of the GNU General Public License as published by  ##
+## the Free Software Foundation, either version 3 of the License, or     ##
+## (at your option) any later version.                                   ##
+##                                                                       ##
+## This program is distributed in the hope that it will be useful,       ##
+## but WITHOUT ANY WARRANTY; without even the implied warranty of        ##
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         ##
+## GNU General Public License for more details.                          ##
+##                                                                       ##
+## You should have received a copy of the GNU General Public License     ##
+## along with this program.  If not, see <http://www.gnu.org/licenses/>. ##
+##                                                                       ##
+#########################################################################*/
+
+meta {
+    title: "Osmose-QA – Missing altitude";
+    description: "Ensure there is an altitude on mountain pass and peaks";
+    author: "Etienne Chové";
+}
+meta[lang=en] { /* lang=en, unused, only to use tr() to catch string for translation */
+    description: tr("Ensure there is an altitude on mountain pass and peaks");
+}
+meta[lang=fr] {
+    description: "S'assurer qu'il y a une altitude sur les cols et les sommets";
+}
+
+node[mountain_pass?][!ele],
+way[mountain_pass?][!ele] {
+    throwWarning: tr("Missing altitude");
+    -osmoseItemClassLevel: "2020/804:0/3";
+    -osmoseTags: list("tag", "fix:survey");
+
+    assertMatch: "node mountain_pass=yes";
+    assertMatch: "node mountain_pass=1";
+    assertNoMatch: "node highway=trunk";
+    assertNoMatch: "node mountain_pass=no";
+    assertNoMatch: "node mountain_pass=-1";
+    assertNoMatch: "node mountain_pass=yes ele=1000";
+}
+
+node[natural=peak][!ele],
+way[natural=peak][!ele] {
+    throwWarning: tr("Missing altitude");
+    -osmoseItemClassLevel: "2020/804:1/3";
+    -osmoseTags: list("tag", "fix:survey");
+
+    assertMatch: "node natural=peak";
+    assertNoMatch: "node natural=peak ele=1000";
+}
