@@ -12,8 +12,41 @@ class Josm_FranceSpecificRules(Plugin):
         Plugin.init(self, logger)
         tags = capture_tags = {}
         self.errors[21600] = {'item': 2160, 'level': 3, 'tag': mapcss.list_(u'tag', u'railway'), 'desc': mapcss.tr(u'Tag gauge manquant sur rail')}
+        self.errors[21700] = {'item': 2170, 'level': 3, 'tag': mapcss.list_(u'parking', u'amenity', u'fix:chair'), 'desc': mapcss.tr(u'Tag manquant sur aire de covoiturage')}
+
+        self.re_725d68eb = re.compile(r'co.?voiturage')
 
 
+    def node(self, data, tags):
+        capture_tags = {}
+        keys = tags.keys()
+        err = []
+
+
+        # *[name=~/co.?voiturage/][amenity!=car_pooling][!carpool][inside("FR")]
+        if (u'name' in keys):
+            match = False
+            if not match:
+                capture_tags = {}
+                try: match = (mapcss.regexp_test(mapcss._value_capture(capture_tags, 0, self.re_725d68eb), mapcss._tag_capture(capture_tags, 0, tags, u'name')) and mapcss._tag_capture(capture_tags, 1, tags, u'amenity') != mapcss._value_capture(capture_tags, 1, u'car_pooling') and not mapcss._tag_capture(capture_tags, 2, tags, u'carpool') and mapcss.inside(self.father.config.options, u'FR'))
+                except mapcss.RuleAbort: pass
+            if match:
+                # -osmoseTags:list("parking","amenity","fix:chair")
+                # -osmoseItemClassLevel:"2170/21700/3"
+                # throwWarning:tr("Tag manquant sur aire de covoiturage")
+                # fixAdd:"amenity=car_pooling"
+                # fixAdd:"carpool=designated"
+                # -osmoseAssertMatchWithContext:list("node name='Aire de Covoiturage' amenity=parking","inside=FR")
+                # -osmoseAssertNoMatchWithContext:list("way name='Aire de covoiturage' amenity=car_pooling","inside=FR")
+                # -osmoseAssertMatchWithContext:list("way name='Aire de covoiturage' amenity=car_sharing","inside=FR")
+                # -osmoseAssertNoMatchWithContext:list("way name='Aire de covoiturage' amenity=parking carpool=designated","inside=FR")
+                err.append({'class': 21700, 'subclass': 0, 'text': mapcss.tr(u'Tag manquant sur aire de covoiturage'), 'allow_fix_override': True, 'fix': {
+                    '+': dict([
+                    [u'amenity',u'car_pooling'],
+                    [u'carpool',u'designated']])
+                }})
+
+        return err
 
     def way(self, data, tags, nds):
         capture_tags = {}
@@ -38,6 +71,60 @@ class Josm_FranceSpecificRules(Plugin):
                 # -osmoseAssertMatchWithContext:list("way railway=rail","inside=FR")
                 err.append({'class': 21600, 'subclass': 0, 'text': mapcss.tr(u'Tag gauge manquant sur rail')})
 
+        # *[name=~/co.?voiturage/][amenity!=car_pooling][!carpool][inside("FR")]
+        if (u'name' in keys):
+            match = False
+            if not match:
+                capture_tags = {}
+                try: match = (mapcss.regexp_test(mapcss._value_capture(capture_tags, 0, self.re_725d68eb), mapcss._tag_capture(capture_tags, 0, tags, u'name')) and mapcss._tag_capture(capture_tags, 1, tags, u'amenity') != mapcss._value_capture(capture_tags, 1, u'car_pooling') and not mapcss._tag_capture(capture_tags, 2, tags, u'carpool') and mapcss.inside(self.father.config.options, u'FR'))
+                except mapcss.RuleAbort: pass
+            if match:
+                # -osmoseTags:list("parking","amenity","fix:chair")
+                # -osmoseItemClassLevel:"2170/21700/3"
+                # throwWarning:tr("Tag manquant sur aire de covoiturage")
+                # fixAdd:"amenity=car_pooling"
+                # fixAdd:"carpool=designated"
+                # -osmoseAssertMatchWithContext:list("node name='Aire de Covoiturage' amenity=parking","inside=FR")
+                # -osmoseAssertNoMatchWithContext:list("way name='Aire de covoiturage' amenity=car_pooling","inside=FR")
+                # -osmoseAssertMatchWithContext:list("way name='Aire de covoiturage' amenity=car_sharing","inside=FR")
+                # -osmoseAssertNoMatchWithContext:list("way name='Aire de covoiturage' amenity=parking carpool=designated","inside=FR")
+                err.append({'class': 21700, 'subclass': 0, 'text': mapcss.tr(u'Tag manquant sur aire de covoiturage'), 'allow_fix_override': True, 'fix': {
+                    '+': dict([
+                    [u'amenity',u'car_pooling'],
+                    [u'carpool',u'designated']])
+                }})
+
+        return err
+
+    def relation(self, data, tags, members):
+        capture_tags = {}
+        keys = tags.keys()
+        err = []
+
+
+        # *[name=~/co.?voiturage/][amenity!=car_pooling][!carpool][inside("FR")]
+        if (u'name' in keys):
+            match = False
+            if not match:
+                capture_tags = {}
+                try: match = (mapcss.regexp_test(mapcss._value_capture(capture_tags, 0, self.re_725d68eb), mapcss._tag_capture(capture_tags, 0, tags, u'name')) and mapcss._tag_capture(capture_tags, 1, tags, u'amenity') != mapcss._value_capture(capture_tags, 1, u'car_pooling') and not mapcss._tag_capture(capture_tags, 2, tags, u'carpool') and mapcss.inside(self.father.config.options, u'FR'))
+                except mapcss.RuleAbort: pass
+            if match:
+                # -osmoseTags:list("parking","amenity","fix:chair")
+                # -osmoseItemClassLevel:"2170/21700/3"
+                # throwWarning:tr("Tag manquant sur aire de covoiturage")
+                # fixAdd:"amenity=car_pooling"
+                # fixAdd:"carpool=designated"
+                # -osmoseAssertMatchWithContext:list("node name='Aire de Covoiturage' amenity=parking","inside=FR")
+                # -osmoseAssertNoMatchWithContext:list("way name='Aire de covoiturage' amenity=car_pooling","inside=FR")
+                # -osmoseAssertMatchWithContext:list("way name='Aire de covoiturage' amenity=car_sharing","inside=FR")
+                # -osmoseAssertNoMatchWithContext:list("way name='Aire de covoiturage' amenity=parking carpool=designated","inside=FR")
+                err.append({'class': 21700, 'subclass': 0, 'text': mapcss.tr(u'Tag manquant sur aire de covoiturage'), 'allow_fix_override': True, 'fix': {
+                    '+': dict([
+                    [u'amenity',u'car_pooling'],
+                    [u'carpool',u'designated']])
+                }})
+
         return err
 
 
@@ -56,8 +143,32 @@ class Test(TestPluginCommon):
         data = {'id': 0, 'lat': 0, 'lon': 0}
 
         with with_options(n, {'country': 'FR'}):
+            self.check_err(n.node(data, {u'amenity': u'parking', u'name': u'Aire de Covoiturage'}), expected={'class': 21700, 'subclass': 0})
+        with with_options(n, {'country': 'FR'}):
+            self.check_not_err(n.way(data, {u'amenity': u'car_pooling', u'name': u'Aire de covoiturage'}, [0]), expected={'class': 21700, 'subclass': 0})
+        with with_options(n, {'country': 'FR'}):
+            self.check_err(n.way(data, {u'amenity': u'car_sharing', u'name': u'Aire de covoiturage'}, [0]), expected={'class': 21700, 'subclass': 0})
+        with with_options(n, {'country': 'FR'}):
+            self.check_not_err(n.way(data, {u'amenity': u'parking', u'carpool': u'designated', u'name': u'Aire de covoiturage'}, [0]), expected={'class': 21700, 'subclass': 0})
+        with with_options(n, {'country': 'FR'}):
             self.check_not_err(n.way(data, {u'railway': u'disused'}, [0]), expected={'class': 21600, 'subclass': 0})
         with with_options(n, {'country': 'FR'}):
             self.check_not_err(n.way(data, {u'gauge': u'1435', u'railway': u'rail'}, [0]), expected={'class': 21600, 'subclass': 0})
         with with_options(n, {'country': 'FR'}):
             self.check_err(n.way(data, {u'railway': u'rail'}, [0]), expected={'class': 21600, 'subclass': 0})
+        with with_options(n, {'country': 'FR'}):
+            self.check_err(n.node(data, {u'amenity': u'parking', u'name': u'Aire de Covoiturage'}), expected={'class': 21700, 'subclass': 0})
+        with with_options(n, {'country': 'FR'}):
+            self.check_not_err(n.way(data, {u'amenity': u'car_pooling', u'name': u'Aire de covoiturage'}, [0]), expected={'class': 21700, 'subclass': 0})
+        with with_options(n, {'country': 'FR'}):
+            self.check_err(n.way(data, {u'amenity': u'car_sharing', u'name': u'Aire de covoiturage'}, [0]), expected={'class': 21700, 'subclass': 0})
+        with with_options(n, {'country': 'FR'}):
+            self.check_not_err(n.way(data, {u'amenity': u'parking', u'carpool': u'designated', u'name': u'Aire de covoiturage'}, [0]), expected={'class': 21700, 'subclass': 0})
+        with with_options(n, {'country': 'FR'}):
+            self.check_err(n.node(data, {u'amenity': u'parking', u'name': u'Aire de Covoiturage'}), expected={'class': 21700, 'subclass': 0})
+        with with_options(n, {'country': 'FR'}):
+            self.check_not_err(n.way(data, {u'amenity': u'car_pooling', u'name': u'Aire de covoiturage'}, [0]), expected={'class': 21700, 'subclass': 0})
+        with with_options(n, {'country': 'FR'}):
+            self.check_err(n.way(data, {u'amenity': u'car_sharing', u'name': u'Aire de covoiturage'}, [0]), expected={'class': 21700, 'subclass': 0})
+        with with_options(n, {'country': 'FR'}):
+            self.check_not_err(n.way(data, {u'amenity': u'parking', u'carpool': u'designated', u'name': u'Aire de covoiturage'}, [0]), expected={'class': 21700, 'subclass': 0})
